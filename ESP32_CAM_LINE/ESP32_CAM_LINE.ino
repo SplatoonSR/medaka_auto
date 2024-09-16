@@ -15,10 +15,13 @@ const char* password = "kakikukeko";
 //上迫と Yp7X33zbfKkXTlInxfleDIcCTy2iyOMDIx5BAx4fhzv
 //IEJeETQjQmDcXNK3unDXANUpZsd6zQ36y5l5yqQz8en
 //cBtnNntqK8KGD5LH8Rph4MnBID9eNdAoOjtzMJEjheR
-const char* token = "z9VoYf3G9T4d1kiFGQjECXKwvMDVBDHPiKkmzGr0Pj7";
+//9月16日AIE7wWqRey6mspagbUU33ppdrpPpIDoUAmvB2ZqitZr
+//jTZtwUGUBerjFTAoAcOjaZj1ZDE0hKfsRJKvRON2Equ　個人用
+const char* token = "jTZtwUGUBerjFTAoAcOjaZj1ZDE0hKfsRJKvRON2Equ";
 
+int input_cam = 12;
 void setup() {
-
+  pinMode(2, OUTPUT);
   Serial.begin(115200);
   if (cameraSetup()==1) {
   // LED onなど
@@ -31,17 +34,26 @@ void setup() {
   Serial.print(".");
   delay(500);
   }
+  //digitalWrite(2, HIGH);
   Serial.println("");
   Serial.println(WiFi.localIP());  
   LINE.setToken(token);
+
+  pinMode(input_cam, INPUT);              //2ピンを入力ピンにする
   }
 
 void loop() {
   delay(1000); 
-  Camera_capture();
+  //Camera_capture();
+    if(digitalRead(input_cam)== HIGH){      //もし3ピンがHIGHなら
+      Serial.println("写真ボタンON");
+      Camera_capture();           //7ピンをHIGHにする
+    }
+    else {}
   }
 
 void Camera_capture() {
+  Serial.println("写真ボタンON");
   camera_fb_t * fb = NULL;
   delay(200); 
   // 撮影処理
@@ -111,5 +123,6 @@ void Send_line(uint8_t *image_data,size_t   image_size){
   s->set_saturation(s, 0); // 撮影画像の彩度
 
   Serial.println("カメラの設定が完了しました");
+  
     return 1;
  }
