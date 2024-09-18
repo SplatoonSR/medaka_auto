@@ -8,16 +8,11 @@
 
 
 // Wi-Fi
-const char* ssid     = "iPhone SR";
-const char* password = "kakikukeko";
-// Notify
-//個人　z9VoYf3G9T4d1kiFGQjECXKwvMDVBDHPiKkmzGr0Pj7
-//上迫と Yp7X33zbfKkXTlInxfleDIcCTy2iyOMDIx5BAx4fhzv
-//IEJeETQjQmDcXNK3unDXANUpZsd6zQ36y5l5yqQz8en
-//cBtnNntqK8KGD5LH8Rph4MnBID9eNdAoOjtzMJEjheR
-//9月16日AIE7wWqRey6mspagbUU33ppdrpPpIDoUAmvB2ZqitZr
-//jTZtwUGUBerjFTAoAcOjaZj1ZDE0hKfsRJKvRON2Equ　個人用
-const char* token = "jTZtwUGUBerjFTAoAcOjaZj1ZDE0hKfsRJKvRON2Equ";
+const char* ssid     = "*********";
+const char* password = "*******";
+
+//LINE Notifyのトークン
+const char* token = "******";
 
 int input_cam = 12;
 void setup() {
